@@ -1,5 +1,5 @@
 {
-  Delphi ›le Checksum Hesaplama
+  Delphi √ùle Checksum Hesaplama
   MD5,SHA-1,SHA256,SHA384,SHA512
   Sercan TEK  - 20.10.2016
   www.sercanca.com
@@ -65,22 +65,6 @@ implementation
 uses  IdHashMessageDigest, IdHashSHA, IdSSLOpenSSL,Winapi.ShellAPI, Unit2;
 
 {$R *.dfm}
-
-// Dosya MD5 hash alma
-function MD5(const FileName: string): string;
-var
-  IdMD5: TIdHashMessageDigest5;
-  FS: TFileStream;
-begin
- IdMD5 := TIdHashMessageDigest5.Create;
- FS := TFileStream.Create(FileName, fmOpenRead or fmShareDenyWrite);
- try
-   Result := IdMD5.HashStreamAsHex(FS)
- finally
-   FS.Free;
-   IdMD5.Free;
- end;
-end;
 
 // Dosya SHA hash alma
 function TForm1.Dosya_Hash(const FileName: string;Hash_tipi:integer): string;
@@ -183,30 +167,30 @@ end;
     end;
 
 edit1.Text := Dosya;
-   StatusBar1.Panels[0].Text := 'Durum : Hesaplan˝yor...';
+   StatusBar1.Panels[0].Text := 'Durum : Hesaplan√Ωyor...';
    application.ProcessMessages;
    edit2.Text := Dosya_Hash(Dosya,0);
-      StatusBar1.Panels[0].Text := 'Durum : MD5 Hesapland˝';
+      StatusBar1.Panels[0].Text := 'Durum : MD5 Hesapland√Ω';
       bar.Position := bar.Position + 20 ;
       application.ProcessMessages;
    edit3.Text := Dosya_Hash(Dosya,1);
-      StatusBar1.Panels[0].Text := 'Durum : SHA1 Hesapland˝';
+      StatusBar1.Panels[0].Text := 'Durum : SHA1 Hesapland√Ω';
       bar.Position := bar.Position + 20 ;
       application.ProcessMessages;
    edit4.Text := Dosya_Hash(Dosya,2);
-      StatusBar1.Panels[0].Text := 'Durum : SHA256 Hesapland˝';
+      StatusBar1.Panels[0].Text := 'Durum : SHA256 Hesapland√Ω';
       bar.Position := bar.Position + 20 ;
       application.ProcessMessages;
    edit5.Text := Dosya_Hash(Dosya,3);
-      StatusBar1.Panels[0].Text := 'Durum : SHA384 Hesapland˝';
+      StatusBar1.Panels[0].Text := 'Durum : SHA384 Hesapland√Ω';
       bar.Position := bar.Position + 20 ;
       application.ProcessMessages;
    edit6.Text := Dosya_Hash(Dosya,4);
-      StatusBar1.Panels[0].Text := 'Durum : SHA512 Hesapland˝';
+      StatusBar1.Panels[0].Text := 'Durum : SHA512 Hesapland√Ω';
       bar.Position := bar.Position + 20 ;
       application.ProcessMessages;
 
-StatusBar1.Panels[0].Text := 'Durum : Hesaplama Bitti Yeni Dosya AÁabilirsiniz...';
+StatusBar1.Panels[0].Text := 'Durum : Hesaplama Bitti Yeni Dosya A√ßabilirsiniz...';
 
 end;
 
@@ -228,7 +212,7 @@ Liste.Add('*********************************************************************
 Liste.Add('*  Delphi Dosya Checksum Hesaplama - www.sercanca.com - Ekim-2016   *');
 Liste.Add('*********************************************************************');
 Liste.Add('Tarih      : '+Datetostr(Now)+ '-'+Timetostr(Now));
-Liste.Add('Dosya Ad˝  : '+Edit1.Text);
+Liste.Add('Dosya Ad√Ω  : '+Edit1.Text);
 Liste.Add(Edit2.Text);
 Liste.Add(Edit3.Text);
 Liste.Add(Edit4.Text);
